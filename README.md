@@ -12,7 +12,7 @@ _É de suma importancia que você leia até o final antes de começar a fazer o 
  
  ## <a target='_blank'><img align="left" width=40px height=40px src='https://user-images.githubusercontent.com/54849358/79355150-afdfb000-7f13-11ea-9626-dbc376e40f8f.png' /></a> Não nos conhece?
  
- Somos uma equipe de desenvolvedores e lidamos com os mais diversos tipos de desafios todos os dias como este pequeno teste, e precisamos de volutários para nos ajudar com a resistencia contra o lado sombrio, caso esteja apto, você terá um grupo de Jedis habilidosos ao seu lado para ajudar em sua jornada, e talvez um dia você olhe para trás e veja o quão tranquilo foi essa batalha.
+ Somos uma equipe de desenvolvedores e lidamos com os mais diversos tipos de desafios todos os dias como este pequeno teste, e precisamos de novos aliados para nos ajudar com a resistencia contra o lado sombrio, caso esteja apto, você terá um grupo de Jedis habilidosos ao seu lado para ajudar em sua jornada, e talvez um dia você olhe para trás e veja o quão tranquilo foi essa batalha.
  
  Não há mais tempo, se você chegou até aqui, precisamos de novos combatentes!
   
