@@ -37,6 +37,7 @@ class SendMail extends Mailable
     {
         $this->subject($this->subj);
         $this->to($this->mail, $this->name);
+
         return $this->view('Mail.SendMail', [
             'body' => $this->body
         ]);

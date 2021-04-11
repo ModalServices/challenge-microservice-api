@@ -28,7 +28,9 @@ class Mail extends Model
      * @var array
      */
     protected $fillable = [
+        'subject',
         'mail',
+        'name',
         'body'
     ];
 

@@ -13,10 +13,14 @@ class CreateMailTable extends Migration
      */
     public function up()
     {
-        Schema::create('mail', function (Blueprint $table) {
+        Schema::create('mails', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('subject');
+            $table->string('name');
             $table->string('mail');
             $table->text('body');
+            $table->boolean('fail')->default('false');
+            $table->text('exception')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ class CreateMailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mail');
+        Schema::dropIfExists('mails');
     }
 }

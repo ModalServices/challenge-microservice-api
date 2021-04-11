@@ -28,21 +28,37 @@ class MailService
         return $this->repository->getAllcursor();
     }
 
-    public function send(array  $array)
+    public function send(array $data)
     {
         try {
-            $mail = new SendMail(
-                $array['subject'],
-                $array['mail'],
-                $array['name'],
-                $array['body']
-            );
+            $this->sendMail($data);
+            return $this->save($data);
 
-            Mail::to('davisson.chrles@gmail.com')->send($mail);
         }catch (\Exception $e){
             return $e->getMessage();
         }
+    }
 
+    private function save(array $data)
+    {
+        return $this->repository->store([
+            'subject' => $data['subject'],
+            'mail' => $data['mail'],
+            'name' => $data['name'],
+            'body' => $data['body'],
+        ]);
+    }
+
+    private function sendMail(array $data)
+    {
+        $mail = new SendMail(
+            $data['subject'],
+            $data['mail'],
+            $data['name'],
+            $data['body']
+        );
+
+        Mail::to('davisson.chrles@gmail.com')->send($mail);
     }
 
 }
