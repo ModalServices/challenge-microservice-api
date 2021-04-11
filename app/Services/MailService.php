@@ -35,14 +35,12 @@ class MailService
      * @return object
      * @throws \Exception
      */
-    public function send(array $data)
+    public function send(array $array)
     {
-        $create = $this->save($data);
-        $send = $this->sendMail($data, $create);
-
-        if($create && !is_null($send)){
-            return $create;
+        foreach ($array as $data){
+            $this->sendMail($data, $this->save($data));
         }
+
     }
 
     /**

@@ -26,7 +26,7 @@ class MailController extends Controller
      */
     public function getAll()
     {
-        $this->service->getAllResults();
+        return SendMailResource::collection($this->service->getAllResults());
     }
 
     /**
@@ -38,11 +38,10 @@ class MailController extends Controller
     {
         $send = $this->service->send($request->all());
 
-        if(is_object($send)){
-            return new SendMailResource($send);
-        }else{
-            return response()->json(['status' => 'Error', 'message' => 'Could not send email, check the log']);
-        }
+        return response()->json([
+            'status' => 'Send',
+            'message' => 'Sent emails, check if there was an error in the endpoint: mail/fail'
+        ], 200);
     }
 
     /**

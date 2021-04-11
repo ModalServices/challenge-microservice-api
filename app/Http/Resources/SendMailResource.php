@@ -15,14 +15,9 @@ class SendMailResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'status' => [
-                'message' => 'Send email successfully'
-            ],
-            'content' => [
-                'subject' => $this->subject,
-                'name' => $this->name,
-                'mail' => $this->mail,
-            ],
+            'subject' => $this->subject,
+            'name' => $this->name,
+            'mail' => $this->mail,
         ];
     }
 }
