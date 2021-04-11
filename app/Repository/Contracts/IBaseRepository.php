@@ -21,4 +21,18 @@ interface IBaseRepository
      */
     public function store(array $data): ?object;
 
+    /**
+     * @param int $id
+     * @param array $data
+     * @return mixed
+     */
+    public function update(int $id, array $data);
+
+    /**
+     * @param string $column
+     * @param $value
+     * @return object
+     */
+    public function getWhereAll(string $column, $value): object;
+
 }

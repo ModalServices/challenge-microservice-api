@@ -49,6 +49,17 @@ class BaseReposiroty implements IBaseRepository
     }
 
     /**
+     * Returns all records with clause where.
+     *
+     * @param string $column : Entity column name
+     * @param $value : Value to be searched
+     */
+    public function getWhereAll(string $column, $value): object
+    {
+        return $this->entity->where($column, $value)->get();
+    }
+
+    /**
      * Wites a new record to the database.
      *
      * @param array $data : Data to be recorded in the database
@@ -63,6 +74,29 @@ class BaseReposiroty implements IBaseRepository
             DB::commit();
 
             return $store->refresh();
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * update record in database by ID.
+     *
+     * @param int   $id   :  Entity id code
+     * @param array $data : Data to be recorded in the database
+     */
+    public function update(int $id, array $data)
+    {
+        try {
+            DB::beginTransaction();
+
+            $update = $this->entity->findOrfail($id)->update($data);
+
+            DB::commit();
+
+            return $update;
         } catch (\Exception $e) {
             DB::rollBack();
 

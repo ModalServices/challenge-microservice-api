@@ -31,7 +31,9 @@ class Mail extends Model
         'subject',
         'mail',
         'name',
-        'body'
+        'body',
+        'fail',
+        'exception'
     ];
 
 }

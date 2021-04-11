@@ -21,6 +21,7 @@ class MailService
     }
 
     /**
+     * Retrieve all results
      * @return object
      */
     public function getAllResults()
@@ -28,18 +29,38 @@ class MailService
         return $this->repository->getAllcursor();
     }
 
+    /**
+     * Send mail
+     * @param array $data
+     * @return object
+     * @throws \Exception
+     */
     public function send(array $data)
     {
-        try {
-            $this->sendMail($data);
-            return $this->save($data);
+        $create = $this->save($data);
+        $send = $this->sendMail($data, $create);
 
-        }catch (\Exception $e){
-            return $e->getMessage();
+        if($create && !is_null($send)){
+            return $create;
         }
     }
 
-    private function save(array $data)
+    /**
+     * Retrieve all fail mails
+     * @return object
+     */
+    public function getFailedMails()
+    {
+        return $this->repository->getWhereAll('fail', true);
+    }
+
+    /**
+     * Save data in database
+     * @param array $data
+     * @return object
+     * @throws \Exception
+     */
+    private function save(array $data): object
     {
         return $this->repository->store([
             'subject' => $data['subject'],
@@ -49,16 +70,42 @@ class MailService
         ]);
     }
 
-    private function sendMail(array $data)
+    /**
+     * Send Mail
+     * @param array $data
+     * @param object $sendMail
+     * @throws \Exception
+     */
+    private function sendMail(array $data, object $sendMail)
     {
-        $mail = new SendMail(
-            $data['subject'],
-            $data['mail'],
-            $data['name'],
-            $data['body']
-        );
+        try {
+            $mail = new SendMail(
+                $data['subject'],
+                $data['mail'],
+                $data['name'],
+                $data['body']
+            );
 
-        Mail::to('davisson.chrles@gmail.com')->send($mail);
+           return Mail::to('davisson.chrles@gmail.com')->send($mail);
+
+        }catch (\Exception $e){
+            $this->saveLogFail($sendMail, $e->getMessage());
+        }
+
+    }
+
+    /**
+     * Saved Logs fails to send mail
+     * @param object $sendMail
+     * @param $message
+     * @throws \Exception
+     */
+    private function saveLogFail(object $sendMail, $message)
+    {
+        $this->repository->update($sendMail->id, [
+            'fail' => true,
+            'exception' => $message
+        ]);
     }
 
 }
