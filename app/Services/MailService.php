@@ -84,7 +84,7 @@ class MailService
                 $data['body']
             );
 
-           return Mail::to('davisson.chrles@gmail.com')->send($mail);
+           return Mail::to('challenge@LiveOnSolutions.com')->send($mail);
 
         }catch (\Exception $e){
             $this->saveLogFail($sendMail, $e->getMessage());
