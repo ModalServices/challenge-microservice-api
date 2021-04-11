@@ -7,7 +7,6 @@ use App\Http\Resources\FailMailResource;
 use App\Http\Resources\SendMailResource;
 use App\Services\MailService;
 use Illuminate\Http\Request;
-use function PHPUnit\Framework\isInstanceOf;
 
 class MailController extends Controller
 {

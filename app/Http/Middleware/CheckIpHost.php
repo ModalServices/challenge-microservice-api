@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckeMailKey
+class CheckIpHost
 {
     /**
      * Handle an incoming request.
@@ -16,15 +16,13 @@ class CheckeMailKey
      */
     public function handle(Request $request, Closure $next)
     {
-        $key = env('MAIL_USERNAME');
-        if($key != ""){
+        if($_SERVER["REMOTE_ADDR"] == config('AllowHostIp.allow.ip')){
             return $next($request);
         }else{
             return response()->json([
                 'status' => 'Fail',
-                'message' => 'Key to send mail not found'
+                'message' => 'Ip not allowed for this operation'
             ], 500);
         }
-
     }
 }
