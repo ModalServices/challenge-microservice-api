@@ -2,6 +2,6 @@
 
 return [
     'allow' => [
-        'ip' => '172.19.0.1'
+        'ip' => 'SET_IP_CONFIG'
     ]
 ];
