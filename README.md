@@ -30,15 +30,18 @@ _É de suma importancia que você leia até o final antes de começar a fazer o 
 - A aplicação deve ser capaz de receber uma key de integração;
 - A aplicação deve ser capaz de validar a existência da key internamente;
 - A aplicação deve ser capaz de receber requisições apenas de servidores permitidos (host e/ou ip);
-- A aplicação deve ser capaz de receber via api um conteúdo HTML que será enviado no email;
+- Cada servidor permitido deve ser um única key de integração e ela deve corresponder ao IP ou Host;
+- A aplicação deve ser capaz de receber via api um conteúdo que será enviado no email (conteúdo pode ser um HTML);
 - A aplicação deve ser capaz de disparar emails para os destinos informados;
 - A aplicação deve ser capaz de receber multiplos destinatários e enviar os emails;
 - A aplicação deve retornar um array com os email enviados com sucesso e os com erro;
+- A aplicação deve se capaz de comportar mais de um provedor de disparo de emails (inicialmente o Mailgun)
+- A aplicação deve seguir uma estrutura escalável, pensando em uma menssageria onde no futuro poderão ser adicionadas outros métodos de envio tais como push notification e sms;
 
 ### Requisitos não-funcionais
 - Use o [Mailgun](https://www.mailgun.com/) para disparar os emails;
+- Use uma arquitetura que siga os princípios do [SOLID](https://medium.com/desenvolvendo-com-paixao/o-que-%C3%A9-solid-o-guia-completo-para-voc%C3%AA-entender-os-5-princ%C3%ADpios-da-poo-2b937b3fc530)
 - Use o banco [MongoDB](https://mongodb.com) ou [Postgres](https://www.postgresql.org/) (se julgar necessário);
-- A API deve seguir uma estrutura escalável, pensando em uma estrutura de menssageria onde no futuro poderão ser adicionadas outros métodos de envio tais como push notification e sms;
 - Utilizar variáveis de ambiente (Environment), sem estar hardcoded (digitado no meio codigo). O ideal é utilizar variáveis de ambiente ou arquivos de configuração;
 
 ### Regras de Documentação
