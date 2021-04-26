@@ -66,7 +66,7 @@ Serão considerados extras:
 - Faça um fork deste projeto em sua conta no [Github](https://github.com/join).
 - Crie um repositório *privado*, com a solução do seu desafio. 
 - Em seguida, desenvolva o projeto. 
-- Adicione como membros do repositório [@vcteduardo](https://github.com/vcteduardo) e [@luoldrigues](https://github.com/luoldrigues).
+- Adicione como membros do repositório [@danielneris](https://github.com/danielneris), [@bruno](https://github.com/nuadaep), [@vcteduardo](https://github.com/vcteduardo) e [@luoldrigues](https://github.com/luoldrigues).
 - Por fim, envie um email informando que concluiu o desafio p/ vagas@liveonsolutions.com. (coloque no assunto o nome do desafio)
 
 <br> 
