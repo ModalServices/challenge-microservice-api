@@ -6,7 +6,7 @@ _É de suma importancia que você leia até o final antes de começar a fazer o 
 
 ## <a target='_blank'><img align="left" width=40px height=40px src='https://user-images.githubusercontent.com/54849358/79353989-2f6c7f80-7f12-11ea-8f2a-39aaf259ad81.png' /></a> Bem-Vindo pequeno Padawan ao nosso desafio
 
- Aqui seus conhecimentos serão testados! Sua capacidade de lidar com problemas será testada! Sua força Jedi será testada! Então preparece, e se caso não estiver pronto... Bom, volte em outro momento, estaremos aguardando sua chegada. Que a Força esteja com você.
+ Aqui seus conhecimentos serão testados! Sua capacidade de lidar com problemas será testada! Sua força Jedi será testada! Então prepare-se, e se caso não estiver pronto... Bom, volte em outro momento, estaremos aguardando sua chegada. Que a Força esteja com você.
  
  <br>
  
