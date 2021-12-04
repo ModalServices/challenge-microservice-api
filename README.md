@@ -1,13 +1,13 @@
 # <a target='_blank'><img align="left" width=50px height=50px src='https://user-images.githubusercontent.com/54849358/79355817-8d9a6200-7f14-11ea-9c3c-5ba42c4ce12a.png' /></a> Desafio de Mensageria em Microserviço
 
-_É de suma importancia que você leia até o final antes de começar a fazer o desafio_ 
+_É de suma importancia que você leia até o final antes de começar a fazer o desafio_
 
 <br>
 
 ## <a target='_blank'><img align="left" width=40px height=40px src='https://user-images.githubusercontent.com/54849358/79353989-2f6c7f80-7f12-11ea-8f2a-39aaf259ad81.png' /></a> Bem-Vindo pequeno Padawan ao nosso desafio
 
- Aqui seus conhecimentos serão testados! Sua capacidade de lidar com problemas será testada! Sua força Jedi será testada! Então prepare-se, e se caso não estiver pronto... Bom, volte em outro momento, estaremos aguardando sua chegada. Que a Força esteja com você.
- 
+Aqui seus conhecimentos serão testados! Sua capacidade de handle com problemas será testada! Sua força Jedi será testada! Então prepare-se, e se caso não estiver pronto... Bom, volte em outro momento, estaremos aguardando sua chegada. Que a Força esteja com você.
+
  <br>
  
  ## <a target='_blank'><img align="left" width=40px height=40px src='https://user-images.githubusercontent.com/54849358/79355150-afdfb000-7f13-11ea-9626-dbc376e40f8f.png' /></a> Não nos conhece?
@@ -27,8 +27,9 @@ _É de suma importancia que você leia até o final antes de começar a fazer o 
 - Utilize o MongoDB ou Postgres como banco de dados da aplicação;
 
 ### Requisitos Funcionais
+
 - A aplicação deve ser capaz de receber uma key de integração;
-- A aplicação deve ser capaz de validar a existência da key internamente;
+- A aplicação deve ser capaz de vahandle a existência da key internamente;
 - A aplicação deve ser capaz de receber requisições apenas de servidores permitidos (host e/ou ip);
 - A aplicação deve ser capaz de receber via api um conteúdo HTML que será enviado no email;
 - A aplicação deve ser capaz de disparar emails para os destinos informados;
@@ -36,6 +37,7 @@ _É de suma importancia que você leia até o final antes de começar a fazer o 
 - A aplicação deve retornar um array com os email enviados com sucesso e os com erro;
 
 ### Requisitos não-funcionais
+
 - Use o [Mailgun](https://www.mailgun.com/) para disparar os emails;
 - Use o banco [MongoDB](https://mongodb.com) ou [Postgres](https://www.postgresql.org/) (se julgar necessário);
 - A API deve seguir uma estrutura escalável, pensando em uma estrutura de menssageria onde no futuro poderão ser adicionadas outros métodos de envio tais como push notification e sms;
@@ -57,21 +59,19 @@ Serão considerados extras:
 - Documentação gerada no codigo da API, por ex com ApiDoc;
 - Código com funções e variáveis em ingles (PS: Documentação pode ser em portugues ou ingles);
 
-
 <br>
-
 
 ## :rocket: Para a entrega do seu desafio.
 
 - Faça um fork deste projeto em sua conta no [Github](https://github.com/join).
-- Crie um repositório *privado*, com a solução do seu desafio. 
-- Em seguida, desenvolva o projeto. 
+- Crie um repositório _privado_, com a solução do seu desafio.
+- Em seguida, desenvolva o projeto.
 - Adicione como membros do repositório [@danielneris](https://github.com/danielneris), [@bruno](https://github.com/nuadaep), [@vcteduardo](https://github.com/vcteduardo) e [@luoldrigues](https://github.com/luoldrigues).
 - Por fim, envie um email informando que concluiu o desafio p/ vagas@liveonsolutions.com. (coloque no assunto o nome do desafio)
 
-<br> 
+<br>
 
-*Muito obrigado Padawan por fazer parte da nossa equipe, agredecemos a sua participação, e que a força estejá com você*
+_Muito obrigado Padawan por fazer parte da nossa equipe, agredecemos a sua participação, e que a força estejá com você_
 
 <br>
 

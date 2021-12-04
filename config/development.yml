@@ -1,0 +1,5 @@
+db:
+  database: 'challenge'
+  username: 'postgres'
+  password: 'mysecretpassword'
+  host: 'localhost'
