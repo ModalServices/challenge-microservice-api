@@ -3,8 +3,6 @@ import { Module } from '@nestjs/common'
 import { AppModule as MainModule } from '@/main/app.module'
 
 @Module({
-  imports: [
-    MainModule,
-  ],
+  imports: [MainModule],
 })
 export class AppModule {}

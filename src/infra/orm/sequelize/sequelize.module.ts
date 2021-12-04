@@ -3,6 +3,6 @@ import { sequelizeProvider } from './sequelize.provider'
 
 @Module({
   providers: [...sequelizeProvider],
-  exports: [...sequelizeProvider]
+  exports: [...sequelizeProvider],
 })
 export class SequelizeModule {}

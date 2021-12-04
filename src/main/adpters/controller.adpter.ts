@@ -1,8 +1,8 @@
-import { Controller, HttpResponse } from '@/presentation/protocols';
+import { Controller, HttpResponse } from '@/presentation/protocols'
 
 export const controllerAdpter = async (
   controller: Controller,
-  requisicao?: any
+  requisicao?: any,
 ): Promise<HttpResponse> => {
-  return await controller.handle(requisicao);
-};
+  return await controller.handle(requisicao)
+}

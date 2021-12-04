@@ -1,6 +1,6 @@
-import { Module, HttpModule } from '@nestjs/common';
+import { Module, HttpModule } from '@nestjs/common'
 
-import { SequelizeModule } from '@/infra/orm/sequelize/sequelize.module';
+import { SequelizeModule } from '@/infra/orm/sequelize/sequelize.module'
 // import { GenericModule } from './controllers/generic/generic.module'
 
 @Module({

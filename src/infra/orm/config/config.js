@@ -1,5 +1,5 @@
-const config = require('config');
-const dbConfig = config.get('db');
+const config = require('config')
+const dbConfig = config.get('db')
 
 module.exports = {
   username: dbConfig.username,
@@ -17,11 +17,11 @@ module.exports = {
       typeCast: function (field, next) {
         // for reading from database
         if (field.type === 'DATETIME') {
-          return field.string();
+          return field.string()
         }
-        return next();
+        return next()
       },
     },
   },
   logging: false,
-};
+}

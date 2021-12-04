@@ -1,1 +1,1 @@
-export * from './validador-message';
+export * from './validator-message'

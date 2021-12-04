@@ -1,1 +1,1 @@
-export const REPOSITORY = 'REPOSITORY';
+export const REPOSITORY = 'REPOSITORY'
