@@ -1,7 +1,8 @@
-import { NestFactory } from '@nestjs/core'
+import { NestFactory, Reflector } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { AppModule } from './app.module'
 import * as config from 'config'
+import { OriginGuard } from './validation/guards/origin.guard'
 
 async function bootstrap() {
   const serverConfig = config.get('server')
@@ -23,6 +24,7 @@ async function bootstrap() {
       },
     })
   }
+  app.useGlobalGuards(new OriginGuard(new Reflector()))
   await app.listen(port)
 }
 bootstrap()
