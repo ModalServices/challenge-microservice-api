@@ -1,9 +1,11 @@
 # Build folder
-/dist
+dist
 
 # Configurações locais
-/config/local.yml
+config/local.yml
 
-# Dependencies
+# Dependências
 node_modules
 
+# Tests
+coverage

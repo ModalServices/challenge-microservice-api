@@ -1,9 +1,10 @@
 import * as faker from 'faker'
-import { badRequest } from '@/presentation/helpers'
+import { badRequest, serverError } from '@/presentation/helpers'
+import { throwError } from '@/tests/domain/mocks/test-helpers'
 
 import { SendEmailsController } from '@/presentation/controllers'
 import { GetIntegrationKeySpy, SendEmailSpy } from '@/tests/presentation/mocks'
-import { InvalidIntegrationKeyError } from '@/presentation/errors'
+import { InvalidIntegrationKeyError, MissingParameterError } from '@/presentation/errors'
 
 type SutTypes = {
   sut: SendEmailsController
@@ -72,7 +73,8 @@ describe('SendEmailsController', () => {
       request.emailList.push(faker.internet.email())
     }
     const httpResponse = await sut.handle(request)
-    expect(httpResponse.body.success).toEqual(request.emailList)
+    const sendedEmails = httpResponse.body.map((item) => item.email)
+    expect(sendedEmails).toEqual(request.emailList)
   })
 
   test('A aplicação deve retornar um array com os email enviados com sucesso e os com erro', async () => {
@@ -84,13 +86,23 @@ describe('SendEmailsController', () => {
       request.emailList.push(faker.internet.email())
     }
     const httpResponse = await sut.handle(request)
-    const expectedResult = {
-      success: request.emailList,
-      error: [],
-    }
-    expect(httpResponse.body).toHaveProperty('success')
-    expect(Array.isArray(httpResponse.body.success)).toBeTruthy()
-    expect(httpResponse.body).toHaveProperty('error')
-    expect(Array.isArray(httpResponse.body.error)).toBeTruthy()
+    expect(Array.isArray(httpResponse.body)).toBeTruthy()
+    expect(httpResponse.body[0]).toHaveProperty('success')
+  })
+
+  test('A aplicação deve retornar 500 caso getIntegrationKeySpy falhe', async () => {
+    const { sut, getIntegrationKeySpy } = makeSut()
+    const integrationKey = faker.random.word()
+    const request = mockParams(integrationKey)
+    jest.spyOn(getIntegrationKeySpy, 'get').mockImplementationOnce(throwError)
+    const httpResponse = await sut.handle(request)
+    expect(httpResponse).toEqual(serverError(new Error()))
+  })
+
+  test('A aplicação deve ser capaz de validar se a key está sendo passada como parâmetro', async () => {
+    const { sut, getIntegrationKeySpy } = makeSut()
+    const integrationKey = null
+    const httpResponse = await sut.handle(mockParams(integrationKey))
+    expect(httpResponse).toEqual(badRequest(new MissingParameterError('Integration Key')))
   })
 })
