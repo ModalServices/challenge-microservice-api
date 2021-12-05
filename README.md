@@ -1,82 +1,51 @@
-# <a target='_blank'><img align="left" width=50px height=50px src='https://user-images.githubusercontent.com/54849358/79355817-8d9a6200-7f14-11ea-9c3c-5ba42c4ce12a.png' /></a> Desafio de Mensageria em Microserviço
+# Desafio de Mensageria em Microserviço
 
-_É de suma importancia que você leia até o final antes de começar a fazer o desafio_
+## Principais tecnologias utilizadas para o desenvolvimento
 
-<br>
+- TypeScript/JavaScript
+- Node.js
+- NestJS
+- Mailgun-js
+- Sequelize
+- Postgres
 
-## <a target='_blank'><img align="left" width=40px height=40px src='https://user-images.githubusercontent.com/54849358/79353989-2f6c7f80-7f12-11ea-8f2a-39aaf259ad81.png' /></a> Bem-Vindo pequeno Padawan ao nosso desafio
+Para esse projeto foi utilizado como referência o padrão Clean Architecture
 
-Aqui seus conhecimentos serão testados! Sua capacidade de handle com problemas será testada! Sua força Jedi será testada! Então prepare-se, e se caso não estiver pronto... Bom, volte em outro momento, estaremos aguardando sua chegada. Que a Força esteja com você.
+## Como executar
 
- <br>
- 
- ## <a target='_blank'><img align="left" width=40px height=40px src='https://user-images.githubusercontent.com/54849358/79355150-afdfb000-7f13-11ea-9626-dbc376e40f8f.png' /></a> Não nos conhece?
- 
- Somos uma equipe de desenvolvedores e lidamos com os mais diversos tipos de desafios todos os dias como este pequeno teste, e precisamos de novos aliados para nos ajudar com a resistencia contra o lado sombrio, caso esteja apto, você terá um grupo de Jedis habilidosos ao seu lado para ajudar em sua jornada, e talvez um dia você olhe para trás e veja o quão tranquilo foi essa batalha.
- 
- Não há mais tempo, se você chegou até aqui, precisamos de novos combatentes!
-  
-<br>
+Para esse projeto foi utilizado o Docker com a imagem do Postgres. Todas as informações a api externa (Mailgun) devem ser inseridas no arquivo de configuração que fica no caminho
 
-## <a target='_blank'><img align="left" width=40px height=40px src='https://user-images.githubusercontent.com/54849358/79358887-372f2280-7f18-11ea-9c5f-a1da33e7a719.png' /></a> Regras
+```powershell
+/config/development.yml
+```
 
-### Regras de Setup
+## Pré-configurações
 
-- Padrão da API deve ser Restful (utilizando json);
-- Faça a API na sua Stack de preferencia (acordado na entrevista);
-- Utilize o MongoDB ou Postgres como banco de dados da aplicação;
+1. Baixar o [Docker](https://www.docker.com/products/docker-desktop)
+2. Rodar a imagem do Postgres
 
-### Requisitos Funcionais
+```powershell
+docker run --name some-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:5432 postgres
+```
 
-- A aplicação deve ser capaz de receber uma key de integração;
-- A aplicação deve ser capaz de vahandle a existência da key internamente;
-- A aplicação deve ser capaz de receber requisições apenas de servidores permitidos (host e/ou ip);
-- A aplicação deve ser capaz de receber via api um conteúdo HTML que será enviado no email;
-- A aplicação deve ser capaz de disparar emails para os destinos informados;
-- A aplicação deve ser capaz de receber multiplos destinatários e enviar os emails;
-- A aplicação deve retornar um array com os email enviados com sucesso e os com erro;
+3. Criar o banco de dados
 
-### Requisitos não-funcionais
+```powershell
+  npx sequelize-cli db:create
+```
 
-- Use o [Mailgun](https://www.mailgun.com/) para disparar os emails;
-- Use o banco [MongoDB](https://mongodb.com) ou [Postgres](https://www.postgresql.org/) (se julgar necessário);
-- A API deve seguir uma estrutura escalável, pensando em uma estrutura de menssageria onde no futuro poderão ser adicionadas outros métodos de envio tais como push notification e sms;
-- Utilizar variáveis de ambiente (Environment), sem estar hardcoded (digitado no meio codigo). O ideal é utilizar variáveis de ambiente ou arquivos de configuração;
+4. Criar schema, tabela e inserir dados iniciais
 
-### Regras de Documentação
+```powershell
+  npx sequelize-cli db:migrate
+```
 
-- Com tudo feito, gere uma documentação com [ApiDoc](https://apidocjs.com/), [Swagger](https://swagger.io/), [Apiary](https://apiary.io/) ou [Postman](https://www.postman.com/), com todos os endpoints da sua api, com payload e response (Tanto de sucesso quanto de erro).
+5. Agora é só rodar o projeto
 
-<br>
+```powershell
+  nest start
+```
 
-## Extras
+## Documentação
 
-Os itens extras não são obrigatórios, e não afetam sua avaliação caso não seja feito.
-
-Serão considerados extras:
-
-- Código bem documentado;
-- Documentação gerada no codigo da API, por ex com ApiDoc;
-- Código com funções e variáveis em ingles (PS: Documentação pode ser em portugues ou ingles);
-
-<br>
-
-## :rocket: Para a entrega do seu desafio.
-
-- Faça um fork deste projeto em sua conta no [Github](https://github.com/join).
-- Crie um repositório _privado_, com a solução do seu desafio.
-- Em seguida, desenvolva o projeto.
-- Adicione como membros do repositório [@danielneris](https://github.com/danielneris), [@bruno](https://github.com/nuadaep), [@vcteduardo](https://github.com/vcteduardo) e [@luoldrigues](https://github.com/luoldrigues).
-- Por fim, envie um email informando que concluiu o desafio p/ vagas@liveonsolutions.com. (coloque no assunto o nome do desafio)
-
-<br>
-
-_Muito obrigado Padawan por fazer parte da nossa equipe, agredecemos a sua participação, e que a força estejá com você_
-
-<br>
-
-https://www.liveonbaas.com/
-
-<br>
-
-<a target='_blank'><img align="right" class='header-img' width=230px height=250px src='https://user-images.githubusercontent.com/54849358/78149611-90715f00-740c-11ea-8d21-4654691dca88.png' /></a>
+- Com o código rodando acesse o [Swagger](https://localhost:3000/api-docs/) para testar o serviço
