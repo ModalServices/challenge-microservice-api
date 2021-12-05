@@ -1,10 +1,14 @@
 db:
-  database: 'challenge'
   username: 'postgres'
-  password: 'mystrongpassword'
+  password: 'mypassword'
   host: 'localhost'
 
 mailgun:
   apikey: ''
   domain: ''
   email: ''
+
+  # Example
+  # apikey: 'x222xxxx82x6x2x33x964x4059880xx4-112x1xx8-12xx12x1'
+  # domain: 'sandboxXXXXXXXXXXXXX.mailgun.org'
+  # email: 'example@example.com'

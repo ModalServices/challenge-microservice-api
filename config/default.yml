@@ -6,5 +6,6 @@ server:
   port: 3000
 
 db:
+  database: 'challenge'
   dialect: 'postgres'
   port: '5432'
