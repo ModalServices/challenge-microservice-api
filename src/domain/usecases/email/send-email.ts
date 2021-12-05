@@ -6,8 +6,8 @@ export interface SendEmail {
 
 export namespace SendEmail {
   export type Params = {
-    destinatario: string
-    assunto: string
+    recipient: string
+    subject: string
     conteudo: string
   }
   export type Result = any

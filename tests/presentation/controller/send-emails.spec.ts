@@ -14,8 +14,8 @@ type SutTypes = {
 
 const mockParams = (integrationKey: string): SendEmailsController.Params => ({
   integrationKey,
-  assunto: faker.random.word(),
-  conteudoHtml: faker.random.words(),
+  subject: faker.random.word(),
+  htmlBody: faker.random.words(),
   emailList: [faker.internet.email()],
 })
 
@@ -53,7 +53,7 @@ describe('SendEmailsController', () => {
     const integrationKey = faker.random.word()
     const request = mockParams(integrationKey)
     await sut.handle(request)
-    expect(sendEmailSpy.params.conteudo).toBe(request.conteudoHtml)
+    expect(sendEmailSpy.params.conteudo).toBe(request.htmlBody)
   })
 
   test('A aplicação deve ser capaz de disparar emails para os destinos informados', async () => {
@@ -61,7 +61,7 @@ describe('SendEmailsController', () => {
     const integrationKey = faker.random.word()
     const request = mockParams(integrationKey)
     await sut.handle(request)
-    expect(request.emailList).toContain(sendEmailSpy.params.destinatario)
+    expect(request.emailList).toContain(sendEmailSpy.params.recipient)
   })
 
   test('A aplicação deve ser capaz de receber multiplos destinatários e enviar os emails', async () => {

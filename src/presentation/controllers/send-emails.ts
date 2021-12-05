@@ -15,27 +15,26 @@ export class SendEmailsController implements Controller {
       const apiConfig = await this.getIntegrationKey.get({ integrationKey: params.integrationKey })
 
       if ((apiConfig && !apiConfig.status) || !apiConfig) {
-        console.error('Chave invalida...')
         return badRequest(new InvalidIntegrationKeyError())
       }
 
       const emailListResponse: SendEmailsController.Result = []
 
-      for (const destinatario of params.emailList) {
+      for (const recipient of params.emailList) {
         try {
           await this.sendEmail.send({
-            destinatario: destinatario,
-            assunto: params.assunto,
-            conteudo: params.conteudoHtml,
+            recipient: recipient,
+            subject: params.subject,
+            conteudo: params.htmlBody,
           })
           emailListResponse.push({
-            email: destinatario,
+            email: recipient,
             success: true,
           })
         } catch (err) {
           console.error(err)
           emailListResponse.push({
-            email: destinatario,
+            email: recipient,
             success: false,
           })
         }
@@ -55,8 +54,8 @@ export namespace SendEmailsController {
   export type Params = {
     integrationKey: string
     emailList: string[]
-    conteudoHtml: string
-    assunto: string
+    htmlBody: string
+    subject: string
   }
 
   export type Result = EmailList[]

@@ -7,9 +7,9 @@ export class EnviarEmailDto {
 
   @IsString({ message: ValidatorMessage.string('Corpo do email') })
   @IsNotEmpty({ message: ValidatorMessage.empty('Corpo do email') })
-  conteudoHtml: string
+  htmlBody: string
 
   @IsString({ message: ValidatorMessage.string('Assunto do email') })
   @IsNotEmpty({ message: ValidatorMessage.empty('Assunto do email') })
-  assunto: string
+  subject: string
 }

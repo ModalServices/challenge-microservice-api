@@ -20,8 +20,8 @@ export class MailgunService implements SendEmailService {
     const mailgunClient = await this.createClient()
     const data = {
       from: mailgunConfig.email,
-      to: params.destinatario,
-      subject: params.assunto,
+      to: params.recipient,
+      subject: params.subject,
       html: params.conteudo,
     }
 
