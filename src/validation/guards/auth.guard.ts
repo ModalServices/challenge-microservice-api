@@ -12,7 +12,6 @@ export class AuthGuard implements CanActivate {
     const ip = request.ip.split(':').pop()
     const apiConfig = config.get('api')
 
-    console.debug({ host, ip })
     if (request.headers && request.headers.authorization) {
       if (host === 'localhost' || ip === apiConfig.origin) {
         return true
