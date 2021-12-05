@@ -49,3 +49,15 @@ docker run --name some-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:5432 
 ## Documentação
 
 - Com o código rodando acesse o [Swagger](https://localhost:3000/api-docs/) para testar o serviço
+
+## Detalhamento dos requisitos
+
+1. A aplicação é capaz de receber uma key de integração;
+2. A aplicação é capaz de validar a existência da key internamente;
+   - Por padrão a key é gerada no insert do banco com o valor `integration_key` com status `true` para chaves ativas
+3. A aplicação é capaz de receber requisições apenas de servidores permitidos (host e/ou ip);
+   - A aplicação impedi o acesso de clientes de ip's diferentes do configurado no .yml, no campo origin. Para validar basta depurar o arquivo `src/validation/guards/auth.guard.ts`
+4. A aplicação é capaz de receber via api um conteúdo HTML que será enviado no email;
+5. A aplicação é capaz de disparar emails para os destinos informados;
+6. A aplicação é capaz de receber multiplos destinatários e enviar os emails;
+7. A aplicação retorna um array com os email enviados com sucesso e os com erro;
